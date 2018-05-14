@@ -1,0 +1,30 @@
+server:
+  port: 11111
+spring:
+  application:
+    name: member2
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    health-check-url-path: /health
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone : http://user:password123@localhost:8761/eureka/
+    register-with-eureka: true
+logging:
+  level:
+    com:
+      example:
+        member:
+          UserService: debug
+feign:
+  hystrix:
+    enabled: true
